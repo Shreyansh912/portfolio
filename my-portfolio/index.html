@@ -4,13 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Shreyansh Sonkar | AI Student & Developer</title>
-
+    <title>Shreyansh Sonkar | AI Student & Portfolio</title>
+    <meta name="description" content="Official portfolio of Shreyansh Sonkar, B.Tech Artificial Intelligence student at IIT Hyderabad. Explore machine learning projects, deep learning models, and software development work.">
+    <meta name="google-site-verification" content="sUs3mA3on0nbW9Ap3u8UMLxj9Kk2YkW8QnG3To7rxY8" />
+    <meta name="keywords" content="Shreyansh Sonkar, Shreyansh Sonkar IIT Hyderabad, AI Student Portfolio, Machine Learning Projects">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <!-- AI Neural Network Background Canvas -->
+    <canvas id="neural-canvas"></canvas>
+
+    <!-- Custom Glowing Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="custom-cursor-follower" id="cursor-follower"></div>
 
     <!-- Navigation -->
     <nav>
@@ -42,6 +48,24 @@
                 machine learning and building practical AI applications.
             </p>
 
+            <!-- Quick Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-num">IIT H</span>
+                    <span class="stat-label">B.Tech AI</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-num">5+</span>
+                    <span class="stat-label">Active Projects</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-num">PyTorch</span>
+                    <span class="stat-label">Core Stack</span>
+                </div>
+            </div>
+
             <div class="buttons">
                 <a href="#projects" class="btn">View Projects</a>
 
@@ -50,7 +74,29 @@
                 </a>
             </div>
 
-        </div>
+            <!-- Interactive AI Terminal Widget -->
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">shrey@iith-ai:~</span>
+                </div>
+                <div class="terminal-body" id="terminal-output">
+                    <p class="command-line"><span class="prompt">$</span> python3 -m ai_portfolio.init</p>
+                    <p class="output-text">Initializing neural weights... [OK]</p>
+                    <p class="output-text">Loaded B.Tech AI @ IIT Hyderabad profile [OK]</p>
+                    <p class="output-text glow-text">Type or click commands below to explore:</p>
+                    <div class="terminal-actions">
+                        <button onclick="runCommand('skills')">skills</button>
+                        <button onclick="runCommand('projects')">projects</button>
+                        <button onclick="runCommand('contact')">contact</button>
+                        <button onclick="runCommand('clear')">clear</button>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- Closes hero-text -->
 
     </section>
 
@@ -195,37 +241,33 @@
                 <a href="https://github.com/Shreyansh912/Machine_Learning" class="project-link" target="_blank" rel="noopener noreferrer">
                     GitHub →
                 </a>
-                </a>
-
-                </div>
-
-                <!-- Project: Shape Classification using CNN -->
-                <div class="project-card">
-
-                    <h3>Shape Classification (PyTorch CNN)</h3>
-
-                    <p>
-                        Developed an end-to-end binary image classification pipeline using a 
-                        custom PyTorch CNN with 4 residual blocks, data augmentation, 
-                        Batch Normalization, and Cosine Annealing learning rate scheduling.
-                    </p>
-
-                    <p class="tech">
-                        Python · PyTorch · Torchvision · ResNet · Scikit-Learn
-                    </p>
-
-                    <a href="https://github.com/Shreyansh912/Shape_Classification" class="project-link" target="_blank" rel="noopener noreferrer">
-                        GitHub →
-                    </a>
-
-                </div>
 
             </div>
 
-        </section>
+            <!-- Project 5: Shape Classification -->
+            <div class="project-card">
 
-    
+                <h3>Shape Classification (PyTorch CNN)</h3>
 
+                <p>
+                    Developed an end-to-end binary image classification pipeline using a 
+                    custom PyTorch CNN with 4 residual blocks, data augmentation, 
+                    Batch Normalization, and Cosine Annealing learning rate scheduling.
+                </p>
+
+                <p class="tech">
+                    Python · PyTorch · Torchvision · ResNet · Scikit-Learn
+                </p>
+
+                <a href="https://github.com/Shreyansh912/Shape_Classification" class="project-link" target="_blank" rel="noopener noreferrer">
+                    GitHub →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
     <!-- Contact Section -->
