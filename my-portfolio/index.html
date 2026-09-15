@@ -5,23 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shreyansh Sonkar | AI Student & Portfolio</title>
-    <meta name="description" content="Official portfolio of Shreyansh Sonkar, B.Tech Artificial Intelligence student at IIT Hyderabad. Explore machine learning projects, deep learning models, and software development work.">
-    <meta name="google-site-verification" content="sUs3mA3on0nbW9Ap3u8UMLxj9Kk2YkW8QnG3To7rxY8" />
-    <meta name="keywords" content="Shreyansh Sonkar, Shreyansh Sonkar IIT Hyderabad, AI Student Portfolio, Machine Learning Projects">
+    <meta name="description" content="Official portfolio of Shreyansh Sonkar, B.Tech Artificial Intelligence student at IIT Hyderabad.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- AI Neural Network Background Canvas -->
+
+    <!-- Neural Network Background Canvas -->
     <canvas id="neural-canvas"></canvas>
 
-    <!-- Custom Glowing Cursor -->
+    <!-- Glowing Pointer Follower -->
     <div class="custom-cursor" id="cursor"></div>
     <div class="custom-cursor-follower" id="cursor-follower"></div>
 
     <!-- Navigation -->
     <nav>
         <div class="logo">Shreyansh</div>
-
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -31,285 +36,185 @@
         </div>
     </nav>
 
-
     <!-- Home Section -->
     <section id="home" class="hero">
+        <div class="hero-wrapper">
+            <div class="hero-text">
+                <p class="small-text">Hello, I'm</p>
+                <h1>Shreyansh Sonkar</h1>
+                <h2>
+                    <span id="typewriter"></span><span class="typing-cursor">|</span>
+                </h2>
+                <p>
+                    I am an AI student interested in software development,
+                    machine learning and building practical AI applications.
+                </p>
 
-        <div class="hero-text">
-
-            <p class="small-text">Hello, I'm</p>
-
-            <h1>Shreyansh Sonkar</h1>
-
-            <h2>AI Student & Software Developer</h2>
-
-            <p>
-                I am an AI student interested in software development,
-                machine learning and building practical AI applications.
-            </p>
-
-            <!-- Quick Stats Bar -->
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <span class="stat-num">IIT H</span>
-                    <span class="stat-label">B.Tech AI</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-num">5+</span>
-                    <span class="stat-label">Active Projects</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-num">PyTorch</span>
-                    <span class="stat-label">Core Stack</span>
+                <div class="buttons">
+                    <a href="#projects" class="btn">View Projects</a>
+                    <a href="CV.pdf" target="_blank" rel="noopener noreferrer" class="btn secondary">Resume</a>
                 </div>
             </div>
 
-            <div class="buttons">
-                <a href="#projects" class="btn">View Projects</a>
-
-                <a href="CV.pdf" target="_blank" rel="noopener noreferrer" class="btn secondary">
-                    Resume
-                </a>
-            </div>
-
-            <!-- Interactive AI Terminal Widget -->
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                    <span class="terminal-title">shrey@iith-ai:~</span>
+            <!-- J.A.R.V.I.S. 3D Face + Arc Reactor Core -->
+            <div class="jarvis-ai-container">
+                <div class="jarvis-visual-frame">
+                    <!-- Concentric Arc Rings -->
+                    <div class="arc-ring ring-outer"></div>
+                    <div class="arc-ring ring-middle"></div>
+                    <div class="arc-ring ring-inner"></div>
+                    
+                    <!-- Interactive 3D Face Mesh & Speech Waveforms -->
+                    <canvas id="jarvis-canvas" width="340" height="380"></canvas>
+                    <div class="face-scanner-line"></div>
                 </div>
-                <div class="terminal-body" id="terminal-output">
-                    <p class="command-line"><span class="prompt">$</span> python3 -m ai_portfolio.init</p>
-                    <p class="output-text">Initializing neural weights... [OK]</p>
-                    <p class="output-text">Loaded B.Tech AI @ IIT Hyderabad profile [OK]</p>
-                    <p class="output-text glow-text">Type or click commands below to explore:</p>
-                    <div class="terminal-actions">
-                        <button onclick="runCommand('skills')">skills</button>
-                        <button onclick="runCommand('projects')">projects</button>
-                        <button onclick="runCommand('contact')">contact</button>
-                        <button onclick="runCommand('clear')">clear</button>
+
+                <!-- J.A.R.V.I.S. Audio & Status Interface -->
+                <div class="jarvis-status-panel">
+                    <div class="status-indicator">
+                        <span class="pulse-dot"></span>
+                        <span id="jarvis-status-text">SYSTEM: STANDBY</span>
                     </div>
+                    <button id="jarvis-speak-btn" class="jarvis-btn" onclick="speakJarvisIntro(true)">
+                        <span class="mic-icon">🔊</span> Replay Voice Brief
+                    </button>
+                    <p id="jarvis-transcript" class="jarvis-subtext">Click anywhere to authorize vocal uplink.</p>
                 </div>
             </div>
+        </div>
 
-        </div> <!-- Closes hero-text -->
-
+        <!-- Interactive Terminal Widget -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">shrey@iith-ai:~</span>
+            </div>
+            <div class="terminal-body" id="terminal-output">
+                <p class="command-line"><span class="prompt">$</span> python3 -m ai_portfolio.init</p>
+                <p class="output-text">Initializing neural weights... [OK]</p>
+                <p class="output-text">Loaded B.Tech AI @ IIT Hyderabad profile [OK]</p>
+                <p class="output-text glow-text">Type or click commands below to explore:</p>
+                <div class="terminal-actions">
+                    <button onclick="runCommand('skills')">skills</button>
+                    <button onclick="runCommand('projects')">projects</button>
+                    <button onclick="runCommand('contact')">contact</button>
+                    <button onclick="runCommand('clear')">clear</button>
+                </div>
+            </div>
+        </div>
     </section>
-
 
     <!-- About Section -->
     <section id="about">
-
         <h2 class="section-title">About Me</h2>
-
         <div class="about-content">
-
             <p>
                 I am a B.Tech AI student at IIT Hyderabad.
                 I enjoy building software applications and exploring
                 Artificial Intelligence and Machine Learning.
             </p>
-
             <p>
                 My current interests include Python, C++, DSA,
                 Machine Learning, Full Stack Development and LLM applications.
             </p>
-
         </div>
-
     </section>
-
 
     <!-- Skills Section -->
     <section id="skills">
-
         <h2 class="section-title">My Skills</h2>
-
         <div class="skills-container">
-
             <div class="skill">
                 <h3>Programming</h3>
                 <p>Python · C++ · JavaScript</p>
             </div>
-
             <div class="skill">
                 <h3>Web Development</h3>
                 <p>HTML · CSS · JavaScript · React</p>
             </div>
-
             <div class="skill">
                 <h3>AI / ML</h3>
                 <p>Machine Learning · PyTorch · Computer Vision</p>
             </div>
-
             <div class="skill">
                 <h3>Tools</h3>
                 <p>Git · GitHub · VS Code</p>
             </div>
-
         </div>
-
     </section>
-
 
     <!-- Projects Section -->
     <section id="projects">
-
         <h2 class="section-title">My Projects</h2>
-
         <div class="projects-container">
-
             <!-- Project 1 -->
             <div class="project-card">
-
                 <h3>Bird Detection System</h3>
-
-                <p>
-                    A computer vision project that detects birds
-                    from images and videos using deep learning.
-                </p>
-
-                <p class="tech">
-                    Python · OpenCV · PyTorch · YOLO
-                </p>
-
-                <a href="#" class="project-link">
-                    GitHub →
-                </a>
-
+                <p>A computer vision project that detects birds from images and videos using deep learning.</p>
+                <span class="tech">Python · OpenCV · PyTorch · YOLO</span>
+                <a href="#" class="project-link">GitHub →</a>
             </div>
 
             <!-- Project 2 -->
             <div class="project-card">
-
                 <h3>AI PDF Assistant</h3>
-
-                <p>
-                    An AI application that allows users to upload
-                    documents and ask questions about their content.
-                </p>
-
-                <p class="tech">
-                    Python · LLM · RAG · FastAPI
-                </p>
-
-                <a href="#" class="project-link">
-                    GitHub →
-                </a>
-
+                <p>An AI application that allows users to upload documents and ask questions about their content.</p>
+                <span class="tech">Python · LLM · RAG · FastAPI</span>
+                <a href="#" class="project-link">GitHub →</a>
             </div>
 
             <!-- Project 3 -->
             <div class="project-card">
-
                 <h3>Student Expense Tracker</h3>
-
-                <p>
-                    A web application for managing and analyzing
-                    daily student expenses.
-                </p>
-
-                <p class="tech">
-                    HTML · CSS · JavaScript
-                </p>
-
-                <a href="#" class="project-link">
-                    GitHub →
-                </a>
-
+                <p>A web application for managing and analyzing daily student expenses.</p>
+                <span class="tech">HTML · CSS · JavaScript</span>
+                <a href="#" class="project-link">GitHub →</a>
             </div>
 
             <!-- Project 4 -->
             <div class="project-card">
-
                 <h3>CNN from Scratch (NumPy)</h3>
-
-                <p>
-                    Engineered a complete feed-forward Convolutional Neural Network from 
-                    first principles without deep learning libraries, including multi-channel 
-                    convolution, pooling, flattening, and MLP classification.
-                </p>
-
-                <p class="tech">
-                    Python · NumPy · Matplotlib · Vectorization
-                </p>
-
-                <a href="https://github.com/Shreyansh912/Machine_Learning" class="project-link" target="_blank" rel="noopener noreferrer">
-                    GitHub →
-                </a>
-
+                <p>Engineered a complete feed-forward Convolutional Neural Network from first principles without deep learning libraries, including multi-channel convolution, pooling, flattening, and MLP classification.</p>
+                <span class="tech">Python · NumPy · Matplotlib · Vectorization</span>
+                <a href="https://github.com/Shreyansh912/Machine_Learning" class="project-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
             </div>
 
-            <!-- Project 5: Shape Classification -->
+            <!-- Project 5 -->
             <div class="project-card">
-
                 <h3>Shape Classification (PyTorch CNN)</h3>
-
-                <p>
-                    Developed an end-to-end binary image classification pipeline using a 
-                    custom PyTorch CNN with 4 residual blocks, data augmentation, 
-                    Batch Normalization, and Cosine Annealing learning rate scheduling.
-                </p>
-
-                <p class="tech">
-                    Python · PyTorch · Torchvision · ResNet · Scikit-Learn
-                </p>
-
-                <a href="https://github.com/Shreyansh912/Shape_Classification" class="project-link" target="_blank" rel="noopener noreferrer">
-                    GitHub →
-                </a>
-
+                <p>Developed an end-to-end binary image classification pipeline using a custom PyTorch CNN with 4 residual blocks, data augmentation, Batch Normalization, and Cosine Annealing learning rate scheduling.</p>
+                <span class="tech">Python · PyTorch · Torchvision · ResNet · Scikit-Learn</span>
+                <a href="https://github.com/Shreyansh912/Shape_Classification" class="project-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
             </div>
 
+            <!-- Project 6 -->
+            <div class="project-card">
+                <h3>Automated Web Scraper & Price Tracker</h3>
+                <p>Built a multi-tier scraping pipeline and tracking application to monitor product pricing, parse dynamic web elements, and manage records with structured data pipelines.</p>
+                <span class="tech">Python · FastAPI · SQLAlchemy · BeautifulSoup · PostgreSQL</span>
+                <a href="https://github.com/Shreyansh912/price-tracker" class="project-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
+            </div>
         </div>
-
     </section>
-
 
     <!-- Contact Section -->
     <section id="contact">
-
         <h2 class="section-title">Contact Me</h2>
-
-        <p>
-            Interested in working together or discussing a project?
-        </p>
-
+        <p>Interested in working together or discussing a project?</p>
         <div class="contact-links">
-
-            <a href="mailto:Shreyanshsonkar59@gmail.com">
-                Email
-            </a>
-
-            <a href="https://github.com/Shreyansh912" target="_blank" rel="noopener noreferrer">
-                GitHub
-            </a>
-
-            <a href="https://www.linkedin.com/in/shreyansh-sonkar-a29361369/" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-            </a>
-
+            <a href="mailto:Shreyanshsonkar59@gmail.com">Email</a>
+            <a href="https://github.com/Shreyansh912" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/shreyansh-sonkar-a29361369/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-
     </section>
-
 
     <!-- Footer -->
     <footer>
-
-        <p>
-            © 2026 Shreyansh Sonkar. All rights reserved.
-        </p>
-
+        <p>© 2026 Shreyansh Sonkar. All rights reserved.</p>
     </footer>
 
-
     <script src="script.js"></script>
-
 </body>
-
 </html>
