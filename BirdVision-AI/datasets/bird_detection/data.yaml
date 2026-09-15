@@ -1,0 +1,10 @@
+path: C:/Users/shrey/OneDrive/Desktop/Project/BirdVision-AI/datasets/bird_detection
+train: images/train
+val: images/val
+
+names:
+  0: american_robin
+  1: bald_eagle
+  2: blue_jay
+  3: house_sparrow
+  4: mallard

@@ -1,0 +1,14 @@
+names:
+- crow
+- dove
+- sparrow
+nc: 3
+roboflow:
+  license: CC BY 4.0
+  project: birds-species-9dp5b
+  url: https://universe.roboflow.com/farhan-ad6lk/birds-species-9dp5b/dataset/1
+  version: 1
+  workspace: farhan-ad6lk
+test: ../test/images
+train: ../train/images
+val: ../valid/images
